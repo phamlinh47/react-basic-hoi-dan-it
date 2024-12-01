@@ -1,0 +1,78 @@
+import React from 'react';
+
+/*class ChildComponent extends React.Component {
+	/*
+	JSX = return block
+	State: update data real time lien tuc, memory save
+	state: 1 object
+	*
+	//key:value
+	
+
+	render() {
+		// <></> /* use khi dung 2 div ngang cap rieng biet k can boc lai trong 1 div parent*/
+		// console.log('re-render', this.state)
+		//console.log('check props', this.props)
+		//c1
+		/*let name = this.props.name;
+		let age = this.props.age;
+*
+		//c2:
+		//key:value
+		//lam duoc kieu nay khi dat ten bien bang ten key
+		let{name, age, address, arrJobs} = this.props;
+		let a='';
+		return (
+			<> 
+				<div> ChildComponent: {this.props.name} - {this.props.age}</div>
+				<div> ChildComponent: {name} - {age} - {address}</div>
+
+				<div className="job-list">
+					{
+						a = arrJobs.map((item, index) => {
+							return (
+									<div key={item.id}>
+										{item.title} - {item.salary}
+									</div>
+								)
+						})
+					}
+					{console.log('check map array', a)}
+				</div>
+			</>
+		)
+	}
+}
+*/
+
+//arrow function: co const giong nhu 1 bien, k co class nua
+//function chi dung voi hook co huu ich
+//class thi dung class function
+
+//if(+item.salary >= 500): convert từ string => number
+const ChildComponent = (props) =>{
+	console.log('check child props', props)
+	let{arrJobs} = props;
+
+		return (
+			<> 
+			<div>Hello Arrow Function</div>
+				<div className="job-list">
+					{
+						arrJobs.map((item, index) => {
+							if(+item.salary >= 500){
+								return (
+									<div key={item.id}>
+										{item.title} - {item.salary}
+									</div>
+								)
+							}
+							
+						})
+					}
+				</div>
+			</>
+		)
+
+}
+export default ChildComponent;

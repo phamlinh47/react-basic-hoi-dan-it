@@ -1,0 +1,52 @@
+import React from 'react';
+
+class MyComponent extends React.Component {
+	/*
+	JSX = return block
+	State: update data real time lien tuc, memory save
+	state: 1 object
+	*/
+	//key:value
+	state = {
+		name1: 'Andrew',
+		channel: 'Mrlinh47'
+	}
+	handleOnChangeName = (event) =>{
+		this.setState({
+			name1: event.target.value,
+			channel: 'acd'
+		})
+	}
+
+	handleClickButton = () => {
+		console.log('test')
+		alert ('click me')
+	}
+	render() {
+		let name = 'Andrew';
+		// <></> /* use khi dung 2 div ngang cap rieng biet k can boc lai trong 1 div parent*/
+		console.log('re-render', this.state)
+		return (
+			<> 
+
+				<div className="aa"> 
+				{console.log('my name is:', name)}
+				Hello My Component - { name }
+				<input value={this.state.name1} type="text"
+					onChange= {(event) => this.handleOnChangeName(event)}
+				/>
+				</div>
+				<div className="aa1"> 
+					Hello State {this.state.name1}<br/>
+					Hello State channel {this.state['channel']}
+				</div>
+
+				<div className="third-section">
+					<button onClick={() => this.handleClickButton() }>CLick</button>
+				</div>
+			</>
+		)
+	}
+}
+
+export default MyComponent;
